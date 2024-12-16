@@ -1,4 +1,4 @@
-package com.example.restaraunt.Enums;
+package com.example.restaurant.enums;
 
 public enum BookingStatus {
     PENDING, CONFIRMED, CANCELLED
