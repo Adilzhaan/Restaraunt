@@ -26,6 +26,6 @@ public class AuthenticatedUserProvider {
             username = principal.toString();
         }
 
-        return userRepository.findByname(username);
+        return userRepository.findByUsername(username);
     }
 }

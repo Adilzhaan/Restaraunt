@@ -10,21 +10,18 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private LocalDateTime date;
-
-    @Column(nullable = false)
-    private String time;
+    private LocalDateTime dateTime;
 
     @Column(nullable = false)
     private Integer guestCount;
+
+    private String name;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
@@ -46,4 +43,67 @@ public class Booking {
         createdAt = LocalDateTime.now();
     }
 
+    public void setDate(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public void setGuestCount(Integer guestCount) {
+        this.guestCount = guestCount;
+    }
+
+    public void setStatus(BookingStatus status) {
+        this.status = status;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setTable(RestaurantTable table) {
+        this.table = table;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public Integer getGuestCount() {
+        return guestCount;
+    }
+
+    public BookingStatus getStatus() {
+        return status;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public RestaurantTable getTable() {
+        return table;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
 }

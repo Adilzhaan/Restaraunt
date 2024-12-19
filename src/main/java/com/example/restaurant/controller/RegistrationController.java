@@ -1,5 +1,6 @@
 package com.example.restaurant.controller;
 import com.example.restaurant.entity.User;
+import com.example.restaurant.enums.Role;
 import com.example.restaurant.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -27,9 +28,12 @@ public class RegistrationController {
     }
     @PostMapping
     public String registerUser(@ModelAttribute("user") User user, Model model) {
-        if (user.getName() == null || user.getPassword() == null || user.getEmail() == null) {
+        if (user.getUsername() == null || user.getPassword() == null || user.getEmail() == null) {
             model.addAttribute("error", "All fields are required.");
             return "register";
+        }
+        if (user.getRole() == null || user.getRole().isEmpty()) {
+            user.setRole(Role.USER);
         }
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));

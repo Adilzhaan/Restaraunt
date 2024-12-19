@@ -50,12 +50,12 @@ public class UserService {
     }
 
     public User getUserByUsername(String username) {
-        return userRepository.findByname(username);
+        return userRepository.findByUsername(username);
     }
 
     public void updateUserProfile(String username, String email, MultipartFile photo) {
         User user = authenticatedUserProvider.getAuthenticatedUserProvider();
-        user.setName(username);
+        user.setUsername(username);
         user.setEmail(email);
         userRepository.save(user);
     }

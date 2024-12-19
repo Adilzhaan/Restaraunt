@@ -26,12 +26,12 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/admin/**").hasRole("OWNER")
-                        .requestMatchers("/user/**", "/forgot-password", "/reset-password", "/login", "/register").permitAll()
+                        .requestMatchers("/user/**", "/forgot-password", "/reset-password", "/login", "/register", "/bookings/main").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(login -> login
                         .loginPage("/login")
-                        .defaultSuccessUrl("/tasks", true)
+                        .defaultSuccessUrl("/bookings/main", true)
                         .failureUrl("/login?error=true")
                         .permitAll()
                 )

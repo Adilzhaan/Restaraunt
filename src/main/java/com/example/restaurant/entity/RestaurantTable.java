@@ -21,6 +21,16 @@ public class RestaurantTable {
     @Column(nullable = false)
     private Integer capacity;
 
+    private Boolean isAvailable;
+
+    public Boolean getAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(Boolean available) {
+        this.isAvailable = available;
+    }
+
     @ManyToOne
     @JoinColumn(name = "restaurant_id", nullable = false)
     private Restaurant restaurant;
